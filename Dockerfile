@@ -15,7 +15,7 @@ USER nuser
 # RUN sudo locale-gen
 
 # Add all base dependencies
-RUN sudo apt-get update 
+RUN sudo apt-get update
 RUN sudo apt-get install -y language-pack-en-base
 RUN sudo apt-get install -y vim curl
 RUN sudo apt-get install -y build-essential
@@ -48,6 +48,7 @@ RUN sudo chown -R nuser:nuser .
 
 RUN /bin/bash -l -c "npm install"
 
+VOLUME ["/stockflare"]
 VOLUME ["/stockflare"]
 
 # Setup the entrypoint
