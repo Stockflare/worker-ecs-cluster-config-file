@@ -49,7 +49,6 @@ RUN sudo chown -R nuser:nuser .
 RUN /bin/bash -l -c "npm install"
 
 VOLUME ["/stockflare"]
-VOLUME ["/stockflare"]
 
 # Setup the entrypoint
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
