@@ -24,11 +24,20 @@ var downloadAllFiles = function() {
   }
 
   if (fs.statSync(folder).isDirectory()) {
+    // Sync all files
     var cmd = 'aws --region ' + region + ' s3 sync s3://' + bucket + ' ' + folder;
     console.log('cmd: ', cmd);
     exec(cmd, function(error, stdout, stderr) {
       console.log(stdout);
+
+      // Hacky - Give all permissions to all files
+      var chmod_cmd = 'sudo chmod -R 777 ' + folder;
+      console.log('cmd: ', cmd);
+      exec(chmod_cmd, function(error, stdout, stderr) {
+        console.log(stdout);
+      });
     });
+
   }
 };
 
